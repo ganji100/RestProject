@@ -26,7 +26,7 @@ public class SubBrandsController {
     public ResponseEntity<String> saveSubBrand(@RequestBody SubBrands subBrand) {
         try {
             service.registerSubBrand(subBrand);
-            return new ResponseEntity<>("SubBrand registered successfully", HttpStatus.CREATED);
+            return new ResponseEntity<>("SubBrand registered succcccessfully", HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>("Failed to register SubBrand", HttpStatus.INTERNAL_SERVER_ERROR);
         }
