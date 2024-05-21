@@ -46,7 +46,7 @@ public class BrandProductsController {
 	public ResponseEntity<String> updateBrandProduct(@RequestBody BrandProducts brandproducts) {
 		try {
 			brandProductsService.updateBrandProducts(brandproducts);
-			return new ResponseEntity<>("BrandProducts updated sujjccessfully.", HttpStatus.OK);
+			return new ResponseEntity<>("BrandProducts updated successfully", HttpStatus.OK);
 		} catch (RuntimeException e) {
 			return new ResponseEntity<>("BrandProducts not found", HttpStatus.NOT_FOUND);
 		} catch (Exception e) {
