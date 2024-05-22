@@ -26,7 +26,7 @@ public class BrandProductsController {
 	public ResponseEntity<String> saveBrandProduct(@RequestBody BrandProducts brandproducts) {
 		try {
 			brandProductsService.registerBrandProducts(brandproducts);
-			return new ResponseEntity<>("BrandProducts registered jjjj successfully", HttpStatus.CREATED);
+			return new ResponseEntity<>("BrandProducts registered jjjj kkkkk successfully", HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>("Failed to and register BrandProducts", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
