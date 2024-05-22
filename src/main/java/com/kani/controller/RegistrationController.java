@@ -45,6 +45,7 @@ public class RegistrationController {
 	public ResponseEntity<String> updateCustomer(@RequestBody Registration registration) {
 		try {
 			registerService.updateCustomer(registration);
+			System.out.println("ddd");
 			return new ResponseEntity<>("Customer updated successfully", HttpStatus.OK);
 		} catch (RuntimeException e) {
 			return new ResponseEntity<>("Customer not found", HttpStatus.NOT_FOUND);
