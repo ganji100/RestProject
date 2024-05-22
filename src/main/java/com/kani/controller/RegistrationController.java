@@ -25,7 +25,7 @@ public class RegistrationController {
 	public ResponseEntity<String> registerCustomer(@RequestBody Registration registration) {
 		try {
 			registerService.registerCustomer(registration);
-			return new ResponseEntity<>("Customer registered successfully", HttpStatus.CREATED);
+			return new ResponseEntity<>("Customer registered sukkkccessfully", HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>("Failed to register Customer", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
