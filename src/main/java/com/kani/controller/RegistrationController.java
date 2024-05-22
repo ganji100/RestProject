@@ -57,7 +57,9 @@ public class RegistrationController {
 	public ResponseEntity<String> deleteCustomerById(@PathVariable Long id) {
 		try {
 			registerService.deleteCustomerById(id);
+			System.out.println("hrllo");
 			return new ResponseEntity<>("Customer deleted successfully", HttpStatus.OK);
+		
 		} catch (Exception e) {
 			return new ResponseEntity<>("Failed to delete Customer", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
