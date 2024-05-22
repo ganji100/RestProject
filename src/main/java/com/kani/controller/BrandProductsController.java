@@ -28,7 +28,7 @@ public class BrandProductsController {
 			brandProductsService.registerBrandProducts(brandproducts);
 			return new ResponseEntity<>("BrandProducts registered successfully", HttpStatus.CREATED);
 		} catch (Exception e) {
-			return new ResponseEntity<>("Failed to register BrandProducts", HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>("Failed to and register BrandProducts", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
