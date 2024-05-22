@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kani.model.Registration;
+import com.kani.entity.Registration;
 import com.kani.service.RegistrationService;
 
 @RestController
