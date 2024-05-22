@@ -58,6 +58,7 @@ public class RegistrationController {
 		try {
 			registerService.deleteCustomerById(id);
 			return new ResponseEntity<>("Customer deleted successfully", HttpStatus.OK);
+	
 		} catch (Exception e) {
 			return new ResponseEntity<>("Failed to delete Customer", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
