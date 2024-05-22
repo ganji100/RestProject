@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kani.model.Brands;
-import com.kani.model.SubBrands;
+import com.kani.entity.Brands;
+import com.kani.entity.SubBrands;
 import com.kani.repo.BrandsRepository;
 import com.kani.repo.SubBrandsRepository;
 

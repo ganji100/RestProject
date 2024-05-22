@@ -1,4 +1,4 @@
-package com.kani.model;
+package com.kani.entity;
 
 import java.util.Date;
 import java.util.Set;

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kani.model.Brands;
+import com.kani.entity.Brands;
 import com.kani.repo.BrandsRepository;
 
 @Service

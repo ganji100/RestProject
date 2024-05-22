@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kani.model.SubBrands;
+import com.kani.entity.SubBrands;
 import com.kani.service.SubBrandsService;
 
 @RestController
