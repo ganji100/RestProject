@@ -25,7 +25,7 @@ public class RegistrationController {
 	public ResponseEntity<String> registerCustomer(@RequestBody Registration registration) {
 		try {
 			registerService.registerCustomer(registration);
-			return new ResponseEntity<>("Customer registered successfully", HttpStatus.CREATED);
+			return new ResponseEntity<>("Customer registered sukklllllllllllllllllllllllllllllkccessfully", HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>("Failed to register Customer", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -45,6 +45,7 @@ public class RegistrationController {
 	public ResponseEntity<String> updateCustomer(@RequestBody Registration registration) {
 		try {
 			registerService.updateCustomer(registration);
+			System.out.println("ddd");
 			return new ResponseEntity<>("Customer updated successfully", HttpStatus.OK);
 		} catch (RuntimeException e) {
 			return new ResponseEntity<>("Customer not found", HttpStatus.NOT_FOUND);
@@ -57,7 +58,9 @@ public class RegistrationController {
 	public ResponseEntity<String> deleteCustomerById(@PathVariable Long id) {
 		try {
 			registerService.deleteCustomerById(id);
+			System.out.println("hrllo");
 			return new ResponseEntity<>("Customer deleted successfully", HttpStatus.OK);
+		
 		} catch (Exception e) {
 			return new ResponseEntity<>("Failed to delete Customer", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
