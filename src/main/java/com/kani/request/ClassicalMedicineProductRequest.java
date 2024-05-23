@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.kani.entity.ClassicalMedicines;
 
-public class ProductRequest {
+public class ClassicalMedicineProductRequest {
 	private int productId;
 	private String productName;
 	private long price;
