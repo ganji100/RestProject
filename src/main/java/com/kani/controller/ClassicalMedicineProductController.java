@@ -19,7 +19,7 @@ import com.kani.service.ProductService;
 
 @RestController
 @RequestMapping("/product")
-public class ProductController {
+public class ClassicalMedicineProductController {
 	@Autowired
 	ProductService service;
 	

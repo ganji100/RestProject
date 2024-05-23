@@ -37,7 +37,6 @@ public class ClassicalMedicinesController {
 		ClassicalMedicinesResponse response=new ClassicalMedicinesResponse();
 		response=service.getAllMedicine();
 		return new ResponseEntity<>(response,HttpStatus.OK);
-
 		
 	}
 	
