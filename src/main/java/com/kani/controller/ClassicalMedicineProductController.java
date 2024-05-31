@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kani.entity.ClassicalMedicinesProducts;
-import com.kani.request.ClassicalMedicineProductRequest;
+import com.kani.request.ProductRequest;
 import com.kani.response.ProductResponse;
 import com.kani.service.ProductService;
 
@@ -24,7 +24,7 @@ public class ClassicalMedicineProductController {
 	ProductService service;
 	
 	@PostMapping("/addProduct")
-	public ResponseEntity<ProductResponse> saveProducts(@RequestBody ClassicalMedicineProductRequest request) throws Exception{
+	public ResponseEntity<ProductResponse> saveProducts(@RequestBody ProductRequest request) throws Exception{
 		ProductResponse response=new ProductResponse();
 		response=service.addProduct(request);
 		return new ResponseEntity<>(response,HttpStatus.OK);

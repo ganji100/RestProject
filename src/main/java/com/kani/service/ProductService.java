@@ -10,7 +10,7 @@ import com.kani.entity.ClassicalMedicines;
 import com.kani.entity.ClassicalMedicinesProducts;
 import com.kani.repo.ClassicalMedicinesProductRepository;
 import com.kani.repo.ClassicalMedicinesRepository;
-import com.kani.request.ClassicalMedicineProductRequest;
+import com.kani.request.ProductRequest;
 import com.kani.response.ProductResponse;
 
 @Service
@@ -21,7 +21,7 @@ public class ProductService {
 	@Autowired
 	ClassicalMedicinesProductRepository repo;
 
-	public ProductResponse addProduct(ClassicalMedicineProductRequest req) {
+	public ProductResponse addProduct(ProductRequest req) {
 		ProductResponse res = new ProductResponse();
 		ClassicalMedicinesProducts cmp = new ClassicalMedicinesProducts();
 		cmp.setProductName(req.getProductName());
