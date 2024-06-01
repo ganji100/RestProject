@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -18,18 +19,20 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Kani_ClassicalMedician")
+@Table(name="Kani_ClassicalMedicines")
 public class ClassicalMedicines {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
-	private int cmId;
-	private String Name, createdBy,updatedBy;
+	private int classicalMedicineId;
+	private String classicalMedicineName, createdBy,updatedBy;
 	@CreationTimestamp
-	
+	@Column(updatable = false)
 	private Date createdDate;
+	
 	@UpdateTimestamp
 	private Date updatedDate;
+	
 	@OneToMany(  fetch=FetchType.LAZY,  cascade=CascadeType.ALL)
     @JoinColumn( name="fk_cmId",referencedColumnName = "cmId")
 private List<ClassicalMedicinesProducts> products;
@@ -40,11 +43,11 @@ private List<ClassicalMedicinesProducts> products;
 	}
 
 
-	public ClassicalMedicines(int cmId, String name, String createdBy, String updatedBy, Date createdDate,
+	public ClassicalMedicines(int cmclassicalMedicineIdId, String classicalMedicineName, String createdBy, String updatedBy, Date createdDate,
 			Date updatedDate) {
 		super();
-		this.cmId = cmId;
-		Name = name;
+		this.classicalMedicineId = classicalMedicineId;
+		classicalMedicineName = classicalMedicineName;
 		this.createdBy = createdBy;
 		this.updatedBy = updatedBy;
 		this.createdDate = createdDate;
@@ -52,23 +55,28 @@ private List<ClassicalMedicinesProducts> products;
 	}
 
 
-	public int getCmId() {
-		return cmId;
+	
+
+
+	public int getClassicalMedicineId() {
+		return classicalMedicineId;
 	}
 
 
-	public void setCmId(int cmId) {
-		this.cmId = cmId;
+	public void setClassicalMedicineId(int classicalMedicineId) {
+		this.classicalMedicineId = classicalMedicineId;
 	}
 
 
-	public String getName() {
-		return Name;
+	
+
+	public String getClassicalMedicineName() {
+		return classicalMedicineName;
 	}
 
 
-	public void setName(String name) {
-		Name = name;
+	public void setClassicalMedicineName(String classicalMedicineName) {
+		this.classicalMedicineName = classicalMedicineName;
 	}
 
 
@@ -109,6 +117,16 @@ private List<ClassicalMedicinesProducts> products;
 
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
+	}
+
+
+	public List<ClassicalMedicinesProducts> getProducts() {
+		return products;
+	}
+
+
+	public void setProducts(List<ClassicalMedicinesProducts> products) {
+		this.products = products;
 	}
 	
 

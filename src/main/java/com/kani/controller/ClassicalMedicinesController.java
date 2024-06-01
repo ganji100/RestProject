@@ -19,12 +19,12 @@ import com.kani.service.ClassicalMedicinesService;
 
 
 @RestController
-@RequestMapping("/classicalmedicine")
+@RequestMapping("/classicalMedicine")
 public class ClassicalMedicinesController {
 	@Autowired
 	ClassicalMedicinesService service;
 	
-	@PostMapping("/addMedicine")
+	@PostMapping("/addclassicalMedicine")
 	public ResponseEntity<ClassicalMedicinesResponse> saveMedicine(@RequestBody ClassicalMedicinesRequest request) throws Exception{
 		ClassicalMedicinesResponse response=new ClassicalMedicinesResponse();
 		response=service.addMedician(request);
@@ -32,7 +32,7 @@ public class ClassicalMedicinesController {
 	}
 	
 	
-	@GetMapping("/fetchMedicine")
+	@GetMapping("/fetchclassicalMedicine")
 	public ResponseEntity<ClassicalMedicinesResponse>getAllmedicinesr(){
 		ClassicalMedicinesResponse response=new ClassicalMedicinesResponse();
 		response=service.getAllMedicine();
@@ -42,13 +42,13 @@ public class ClassicalMedicinesController {
 	}
 	
 	
-	@PutMapping("/updateMedicine")
-	public ResponseEntity<ClassicalMedicinesResponse>updateMedicine(@RequestBody  ClassicalMedicines cm){
+	@PutMapping("/updateclassicalMedicine")
+	public ResponseEntity<ClassicalMedicinesResponse>updateMedicine(@RequestBody  ClassicalMedicines medicine){
 		ClassicalMedicinesResponse response=new ClassicalMedicinesResponse();
-		response=service.updateMedicine(cm);
+		response=service.updateMedicine(medicine);
 		return new ResponseEntity<>(response,HttpStatus.OK);
 	}
-	@DeleteMapping("/deleteMedicine/{id}")
+	@DeleteMapping("/deleteclassicalMedicine/{id}")
 	public ResponseEntity<ClassicalMedicinesResponse>deleteMedicine(@PathVariable int id){
 		ClassicalMedicinesResponse response=new ClassicalMedicinesResponse();
 		response=service.deleteMedicine(id);

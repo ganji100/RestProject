@@ -2,6 +2,8 @@ package com.kani.request;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.kani.entity.ClassicalMedicines;
 
 public class ClassicalMedicineProductRequest {
@@ -12,6 +14,7 @@ public class ClassicalMedicineProductRequest {
 	private String updatedBy;
 	private Date createdDate;
 	private Date updateddate;
+	private MultipartFile image;
 	private ClassicalMedicines classicalMedicines;
 	public int getProductId() {
 		return productId;

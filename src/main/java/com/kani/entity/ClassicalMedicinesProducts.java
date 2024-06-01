@@ -8,12 +8,14 @@ import org.hibernate.annotations.UpdateTimestamp;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -29,10 +31,16 @@ public class ClassicalMedicinesProducts {
 	private String createdBy;
 	private String updatedBy;
 	@CreationTimestamp
+	@Column(updatable = false)
 	private Date createdDate;
 	
 	@UpdateTimestamp
     private Date updatedDate;
+	
+	@Lob
+	@Column(columnDefinition = "MEDIUMBLOB")
+	private byte[] image;
+
 
 	@ManyToOne(targetEntity = ClassicalMedicines.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_cmId", referencedColumnName = "cmId")
@@ -84,11 +92,7 @@ public class ClassicalMedicinesProducts {
 		this.updatedBy = updatedBy;
 	}
 
-	
-//	  public List<ClassicalMedicines> getMedicines() { return medicines; }
-//	  
-//	  public void setMedicines(List<ClassicalMedicines> medicines) { this.medicines
-//	  = medicines; }
+
 	 
 	public ClassicalMedicines getClassicalMedicines() {
 		return  classicalMedicines;
@@ -112,6 +116,15 @@ public class ClassicalMedicinesProducts {
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
 	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	
 	
 
 }

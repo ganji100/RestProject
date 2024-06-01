@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.kani.entity.ClassicalMedicinesProducts;
 
-public class ProductResponse {
+public class ClassicalMedicinesProductResponse {
 	List<ClassicalMedicinesProducts> allProducts;
 	private String Status;
 	private String Message;
