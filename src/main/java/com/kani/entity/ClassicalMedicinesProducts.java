@@ -1,3 +1,4 @@
+
 package com.kani.entity;
 
 import java.util.Date;
@@ -20,9 +21,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
+
 @Table(name = "ClassicalMedicines_Products")
 public class ClassicalMedicinesProducts {
+
 	@Id
+
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private int productId;
@@ -30,22 +34,24 @@ public class ClassicalMedicinesProducts {
 	private long price;
 	private String createdBy;
 	private String updatedBy;
+
 	@CreationTimestamp
+
 	@Column(updatable = false)
 	private Date createdDate;
-	
+
 	@UpdateTimestamp
-    private Date updatedDate;
-	
+	private Date updatedDate;
+
 	@Lob
+
 	@Column(columnDefinition = "MEDIUMBLOB")
 	private byte[] image;
 
-
 	@ManyToOne(targetEntity = ClassicalMedicines.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_cmId", referencedColumnName = "cmId")
-    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
 
+	@JoinColumn(name = "fk_cmId", referencedColumnName = "classicalMedicineId")
+	@JsonIgnoreProperties(value = { "applications", "hibernateLazyInitializer" })
 	private ClassicalMedicines classicalMedicines;
 
 	public ClassicalMedicinesProducts() {
@@ -92,12 +98,11 @@ public class ClassicalMedicinesProducts {
 		this.updatedBy = updatedBy;
 	}
 
-
-	 
 	public ClassicalMedicines getClassicalMedicines() {
-		return  classicalMedicines;
+		return classicalMedicines;
 	}
-	public void   setClassicalMedicines(ClassicalMedicines classicalMedicines) {
+
+	public void setClassicalMedicines(ClassicalMedicines classicalMedicines) {
 		this.classicalMedicines = classicalMedicines;
 	}
 
@@ -124,7 +129,5 @@ public class ClassicalMedicinesProducts {
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
-	
-	
 
 }

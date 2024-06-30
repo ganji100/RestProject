@@ -19,32 +19,36 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Kani_ClassicalMedicines")
+
+@Table(name = "Kani_ClassicalMedicines")
 public class ClassicalMedicines {
+
 	@Id
+
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private int classicalMedicineId;
-	private String classicalMedicineName, createdBy,updatedBy;
+	private String classicalMedicineName, createdBy, updatedBy;
+
 	@CreationTimestamp
+
 	@Column(updatable = false)
 	private Date createdDate;
-	
+
 	@UpdateTimestamp
 	private Date updatedDate;
-	
-	@OneToMany(  fetch=FetchType.LAZY,  cascade=CascadeType.ALL)
-    @JoinColumn( name="fk_cmId",referencedColumnName = "cmId")
-private List<ClassicalMedicinesProducts> products;
- 
-	
-	public ClassicalMedicines(){
+
+	@OneToMany(cascade = CascadeType.ALL)
+
+	@JoinColumn(name = "fk_cmId", referencedColumnName = "classicalMedicineId")
+	private List<ClassicalMedicinesProducts> products;
+
+	public ClassicalMedicines() {
 		super();
 	}
 
-
-	public ClassicalMedicines(int cmclassicalMedicineIdId, String classicalMedicineName, String createdBy, String updatedBy, Date createdDate,
-			Date updatedDate) {
+	public ClassicalMedicines(int cmclassicalMedicineIdId, String classicalMedicineName, String createdBy,
+			String updatedBy, Date createdDate, Date updatedDate) {
 		super();
 		this.classicalMedicineId = classicalMedicineId;
 		classicalMedicineName = classicalMedicineName;
@@ -54,82 +58,60 @@ private List<ClassicalMedicinesProducts> products;
 		this.updatedDate = updatedDate;
 	}
 
-
-	
-
-
 	public int getClassicalMedicineId() {
 		return classicalMedicineId;
 	}
-
 
 	public void setClassicalMedicineId(int classicalMedicineId) {
 		this.classicalMedicineId = classicalMedicineId;
 	}
 
-
-	
-
 	public String getClassicalMedicineName() {
 		return classicalMedicineName;
 	}
-
 
 	public void setClassicalMedicineName(String classicalMedicineName) {
 		this.classicalMedicineName = classicalMedicineName;
 	}
 
-
 	public String getCreatedBy() {
 		return createdBy;
 	}
-
 
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
 
-
 	public String getUpdatedBy() {
 		return updatedBy;
 	}
-
 
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
 	}
 
-
 	public Date getCreatedDate() {
 		return createdDate;
 	}
-
 
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
 
-
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
-
 
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
 	}
 
-
 	public List<ClassicalMedicinesProducts> getProducts() {
 		return products;
 	}
 
-
 	public void setProducts(List<ClassicalMedicinesProducts> products) {
 		this.products = products;
 	}
-	
-
-	
 
 }

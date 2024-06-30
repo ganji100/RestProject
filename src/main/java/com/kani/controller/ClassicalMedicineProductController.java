@@ -1,3 +1,4 @@
+
 package com.kani.controller;
 
 import java.io.IOException;
@@ -23,43 +24,46 @@ import com.kani.response.ClassicalMedicinesProductResponse;
 import com.kani.service.ClassicalMedicinesProductService;
 
 @RestController
+
 @RequestMapping("/ClassicalMedicineproduct")
 public class ClassicalMedicineProductController {
+
 	@Autowired
 	ClassicalMedicinesProductService service;
-	
+
 	@PostMapping(value = "/addClassicalMedicineproduct", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ClassicalMedicinesProductResponse> addProduct(@RequestPart("request") ClassicalMedicineProductRequest request,
-			        @RequestPart("file") MultipartFile file) throws IOException{
+	public ResponseEntity<ClassicalMedicinesProductResponse> addProduct(
+			@RequestPart("request") ClassicalMedicineProductRequest request,
+
+			@RequestPart("file") MultipartFile file) throws IOException {
 		ClassicalMedicinesProductResponse response = new ClassicalMedicinesProductResponse();
-	response = service.addProduct(request, file);
-	return new ResponseEntity<>(response, HttpStatus.OK);
-		}
+		response = service.addProduct(request, file);
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
 
 	@GetMapping("/fetchClassicalMedicineproduct")
-	public ResponseEntity<ClassicalMedicinesProductResponse>getProducts(){
-		ClassicalMedicinesProductResponse res=new ClassicalMedicinesProductResponse();
-		res=service.fetchProducts();
-		return new ResponseEntity<>(res,HttpStatus.OK);
+	public ResponseEntity<ClassicalMedicinesProductResponse> getProducts() {
+		ClassicalMedicinesProductResponse res = new ClassicalMedicinesProductResponse();
+		res = service.fetchProducts();
+		return new ResponseEntity<>(res, HttpStatus.OK);
 
 	}
+
 	@DeleteMapping("/deleteClassicalMedicineproduct/{id}")
-	public ResponseEntity<ClassicalMedicinesProductResponse>deleteProducts(@PathVariable int id){
-		ClassicalMedicinesProductResponse response=new ClassicalMedicinesProductResponse();
-		response=service.deleteProduct(id);
-		return new ResponseEntity<>(response,HttpStatus.OK);
+	public ResponseEntity<ClassicalMedicinesProductResponse> deleteProducts(@PathVariable int id) {
+		ClassicalMedicinesProductResponse response = new ClassicalMedicinesProductResponse();
+		response = service.deleteProduct(id);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
+
 	@PutMapping("/updateClassicalMedicineproduct")
-	public ResponseEntity<ClassicalMedicinesProductResponse>updateProducts(@RequestPart("product") ClassicalMedicinesProducts Products ,
-	        @RequestPart("file") MultipartFile file) throws IOException{
-		ClassicalMedicinesProductResponse response=new ClassicalMedicinesProductResponse();
-		response=service.updateProduct(Products,file);
-		return new ResponseEntity<>(response,HttpStatus.OK);
+	public ResponseEntity<ClassicalMedicinesProductResponse> updateProducts(
+			@RequestPart("product") ClassicalMedicinesProducts Products,
+
+			@RequestPart("file") MultipartFile file) throws IOException {
+		ClassicalMedicinesProductResponse response = new ClassicalMedicinesProductResponse();
+		response = service.updateProduct(Products, file);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
-	
-	
-	
-	
-	
 
 }
